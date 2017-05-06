@@ -1,0 +1,58 @@
+{
+	"process": {
+		"args": [
+			"/usr/local/bin/unifi.sh"
+		]
+	},
+	"mounts": [
+		{
+			"destination": "/var/run",
+			"type": "tmpfs",
+			"source": "tmpfs",
+			"options": [
+				"nosuid",
+				"noexec",
+				"nodev"
+			]
+		},
+		{
+			"destination": "/tmp",
+			"type": "tmpfs",
+			"source": "tmpfs",
+			"options": [
+				"nosuid",
+				"nodev"
+			]
+		},
+		{
+			"destination": "/var/lib/unifi",
+			"type": "bind",
+			"options": [
+				"rbind",
+				"nosuid",
+				"noexec",
+				"nodev"
+			]
+		},
+		{
+			"destination": "/var/log/unifi",
+			"type": "bind",
+			"options": [
+				"rbind",
+				"nosuid",
+				"noexec",
+				"nodev"
+			]
+		},
+		{
+			"destination": "/var/run/unifi",
+			"type": "bind",
+			"options": [
+				"rbind",
+				"nosuid",
+				"noexec",
+				"nodev"
+			]
+		}
+	]
+}

@@ -1,0 +1,53 @@
+{
+	"ociVersion": "1.0.0-rc1",
+	"platform": {
+		"os": "linux",
+		"arch": "amd64"
+	},
+	"process": {
+		"user": {
+			"uid": 65534,
+			"gid": 65534 
+		},
+		"cwd": "/",
+		"rlimits": [
+			{
+				"type": "RLIMIT_NOFILE",
+				"hard": 1024,
+				"soft": 1024
+			}
+		],
+		"noNewPrivileges": true
+	},
+	"root": {
+		"path": "rootfs",
+		"readonly": true
+	},
+	"linux": {
+		"resources": {
+			"devices": [
+				{
+					"allow": false,
+					"access": "rwm"
+				}
+			]
+		},
+		"namespaces": [
+			{
+				"type": "pid"
+			},
+			{
+				"type": "network"
+			},
+			{
+				"type": "ipc"
+			},
+			{
+				"type": "uts"
+			},
+			{
+				"type": "mount"
+			}
+		]
+	}
+}

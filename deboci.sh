@@ -18,8 +18,12 @@ fatal() {
 }
 
 # Sanity checks.
+test "$#" -eq 2 || \
+	fatal "Usage: $0 <destination-dir> <target-spec-dir>"
 test -e "${destdir}" && \
-	fatal "${destdir} already exists, remove to start over."
+	fatal "Destination dir ${destdir} already exists, remove to start over."
+test -d "${final_target}" || \
+	fatal "Target spec ${final_target} is not a directory"
 
 # Figure out the chain of targets and its reverse.
 target="${final_target}"
